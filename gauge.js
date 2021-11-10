@@ -57,10 +57,8 @@ function sendReport(cc) {
     
     if (sessionStorage.uuid) {
           uuid = sessionStorage.uuid;
-          console.log('old '+ uuid);
 	} else {
           sessionStorage.uuid = uuid;
-          console.log('new '+ uuid);
 }
     
     // calculate client metrics    
