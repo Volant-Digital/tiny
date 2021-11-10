@@ -53,7 +53,15 @@ function sendReport(cc) {
     // blend IP
     var ip = cc.IP;
     var numbers = ip.split(".");
-    var uuid = numbers[0] + numbers[1] * numbers[2] + numbers[3]
+    var uuid = numbers[0] + numbers[1] + "." + Math.random().toString(10).slice(-5);	
+    
+    if (sessionStorage.uuid) {
+          uuid = sessionStorage.uuid;
+          console.log('old '+ uuid);
+	} else {
+          sessionStorage.uuid = uuid;
+          console.log('new '+ uuid);
+}
     
     // calculate client metrics    
     var time = window.performance.timing;
