@@ -43,23 +43,15 @@ window.onload = function() {
 	initCountry().then(result => {let cc = result;sendReport(cc);})
 }
 
-/* function genID {
-    var uuid = Math.random().toString(36).slice(-6);   
-} */
-
-
 // window.onload = function() {
 function sendReport(cc) {
-    // blend IP
-    var ip = cc.IP;
-    var numbers = ip.split(".");
-    var uuid = numbers[0] + numbers[1] + "." + Math.random().toString(10).slice(-5);	
-    
+    // assign random uuid
     if (sessionStorage.uuid) {
           uuid = sessionStorage.uuid;
-	} else {
+		} else {
+          let uuid = Math.random().toString(16).slice(-8);
           sessionStorage.uuid = uuid;
-}
+    }
     
     // calculate client metrics    
     var time = window.performance.timing;
