@@ -34,10 +34,6 @@ function initCountry() {
         xhr.send();
     });
 }	
-	
-// Call `initCountry` function 
-// initCountry().then(result => console.log(JSON.stringify(result))).catch(e => console.log(e))
-// initCountry().then(result => {let cc = result;sendReport(cc);})
 
 window.onload = function() {
 	initCountry().then(result => {let cc = result;sendReport(cc);})
