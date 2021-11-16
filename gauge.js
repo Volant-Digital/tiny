@@ -45,7 +45,7 @@ function sendReport(cc) {
     if (sessionStorage.uuid) {
           uuid = sessionStorage.uuid;
 		} else {
-          let uuid = Math.random().toString(16).slice(-8);
+          var uuid = Math.random().toString(16).slice(-8);
           sessionStorage.uuid = uuid;
     }
     
