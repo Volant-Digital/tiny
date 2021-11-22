@@ -49,14 +49,19 @@ function sendReport(cc) {
           sessionStorage.uuid = uuid;
     }
     
-    // calculate client metrics    
+    // calculate client metrics
+	
+var ref = document.referrer
+// Set default value
+ref = ref || 'Direct';
+	
     var time = window.performance.timing;
     var ttfb = time.responseStart - time.navigationStart;
     var onload = time.loadEventStart - time.navigationStart;
     var dcl = time.domContentLoadedEventEnd - time.navigationStart;
     
     // add + metrics & aggregate into an object
-    var perfdat = { url: window.location.href, ttfb: ttfb, dcl: dcl, onLoad: onload, res: window.screen.width+'x'+window.screen.height, ua: navigator.userAgent, cc: cc.countryCode ,user: uuid};
+    var perfdat = { url: window.location.href, ttfb: ttfb, dcl: dcl, onLoad: onload, res: window.screen.width+'x'+window.screen.height, ua: navigator.userAgent, cc: cc.countryCode ,user: uuid, ref: ref};
     
     // report
     async function postName() {
