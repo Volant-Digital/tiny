@@ -1,4 +1,3 @@
-	
 //regular expressions to extract IP and country values
 const countryCodeExpression = /loc=([\w]{2})/;
 const userIPExpression = /ip=([\w\.]+)/;
@@ -35,9 +34,10 @@ function initCountry() {
     });
 }	
 
-window.onload = function() {
+
+window.addEventListener("load", function() {
 	initCountry().then(result => {let cc = result;sendReport(cc);})
-}
+});
 
 // window.onload = function() {
 function sendReport(cc) {
